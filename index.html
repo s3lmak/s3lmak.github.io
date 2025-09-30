@@ -1,195 +1,506 @@
 <!DOCTYPE html>
-<html lang="bs">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ime Prezime — Portfolio / CV</title>
-  <meta name="description" content="Portfolio i CV — studentica Computer Science (minor Elektrotehnika), PR & copywriting iskustvo, dizajn za društvene mreže, više jezika.">
-  <!-- SEO: prilagodi ime, opis i sliku kada dodaš CSS -->
-  <meta property="og:title" content="Ime Prezime — Portfolio / CV">
-  <meta property="og:description" content="Computer Science, PR, copywriting, dizajn, više jezika.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Selma Karačić — Portfolio & CV</title>
+  <meta name="description" content="BSc candidate in Computer Science and Information Systems. PR, copywriting, web development and design.">
+  <meta property="og:title" content="Selma Karačić — Portfolio & CV">
+  <meta property="og:description" content="Computer Science, PR, copywriting, design, multilingual.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="og-image.jpg">
-  <link rel="canonical" href="https://tvojeime.github.io/">
+  <link rel="canonical" href="https://selmakaracic.github.io/">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #ffffff;
+      --text: #1d1d1f;
+      --text-secondary: #6e6e73;
+      --accent: #7c9ff5;
+      --accent-hover: #5a7fd8;
+      --border: #e5e5e7;
+      --surface: #f5f5f7;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--accent);
+      color: white;
+      padding: 8px;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Header & Nav */
+    header {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    nav > a {
+      font-weight: 600;
+      font-size: 21px;
+      color: var(--text);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    nav ul a {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    nav ul a:hover {
+      color: var(--text);
+    }
+
+    /* Hero */
+    #hero {
+      padding: 80px 0 100px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #f0f4ff 100%);
+    }
+
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 56px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .hero-text .lead {
+      font-size: 21px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .hero-text p {
+      font-size: 17px;
+      margin-bottom: 16px;
+      color: var(--text-secondary);
+    }
+
+    .hero-text strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .hero-links a {
+      padding: 10px 20px;
+      background: var(--accent);
+      color: white;
+      border-radius: 980px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: background 0.2s ease;
+    }
+
+    .hero-links a:hover {
+      background: var(--accent-hover);
+    }
+
+    .hero-photo {
+      position: relative;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      background: var(--surface);
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 0;
+    }
+
+    section h2 {
+      font-size: 40px;
+      font-weight: 600;
+      margin-bottom: 32px;
+      letter-spacing: -0.01em;
+    }
+
+    section p {
+      font-size: 17px;
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+      max-width: 760px;
+    }
+
+    /* Skills */
+    .skills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 40px;
+    }
+
+    .skills h3 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .skills ul {
+      list-style: none;
+    }
+
+    .skills li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 17px;
+    }
+
+    .skills li:last-child {
+      border-bottom: none;
+    }
+
+    /* Experience & Projects */
+    .posao, .projekti-lista li {
+      background: var(--surface);
+      border-radius: 18px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .posao header h3, .projekti-lista h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .posao .meta {
+      color: var(--text-secondary);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .posao ul, .projekti-lista p {
+      color: var(--text-secondary);
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .posao ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .posao li {
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .posao li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .projekti-lista {
+      list-style: none;
+    }
+
+    .projekti-lista a {
+      display: inline-block;
+      margin-top: 12px;
+      font-weight: 500;
+    }
+
+    /* Contact */
+    #kontakt ul {
+      list-style: none;
+      font-size: 19px;
+    }
+
+    #kontakt li {
+      margin-bottom: 12px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--surface);
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-wrap {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-photo {
+        order: -1;
+        max-width: 240px;
+        margin: 0 auto;
+      }
+
+      .hero-text h1 {
+        font-size: 40px;
+      }
+
+      .hero-text .lead {
+        font-size: 19px;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .skills {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      section h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Skip link za pristupačnost -->
-  <a href="#sadrzaj" class="skip-link">Preskoči na sadržaj</a>
+  <a href="#sadrzaj" class="skip-link">Skip to content</a>
 
   <header>
     <div class="container">
-      <nav aria-label="Glavna navigacija">
-        <a href="#" aria-label="Početna">Ime Prezime</a>
+      <nav aria-label="Main navigation">
+        <a href="#" aria-label="Home">Selma Karačić</a>
         <ul>
-          <li><a href="#o-meni">O meni</a></li>
-          <li><a href="#vjestine">Vještine & jezici</a></li>
-          <li><a href="#iskustvo">Iskustvo</a></li>
-          <li><a href="#projekti">Projekti</a></li>
-          <li><a href="#obrazovanje">Obrazovanje</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="sadrzaj">
-    <!-- HERO: ime, uloga, kratki sažetak, foto -->
     <section id="hero">
       <div class="container">
         <div class="hero-wrap">
           <div class="hero-text">
-            <h1>Ime Prezime</h1>
+            <h1>Selma Karačić</h1>
             <p class="lead">
-              Studentica <strong>Computer Science</strong> (minor u <strong>Elektrotehnici</strong>).
-              Kreativna i posvećena tehnici i dizajnu: od izrade sadržaja i digitalnih kampanja do web projekata i vizuelnih rješenja.
-              Iskustvo u <strong>PR‑u</strong> TV produkcije, <strong>copywritingu</strong> i <strong>dizajnu za društvene mreže</strong>.
+              BSc candidate in <strong>Computer Science and Information Systems</strong> (minor in <strong>Electrical Engineering</strong>).
             </p>
             <p>
-              Fokus mi je na razvoju vještina u <strong>računarstvu</strong> i isporuci jasnih, funkcionalnih rješenja koja spajaju
-              tehnologiju i estetiku.
+              Combining a strong CS foundation with a design mindset to build clear, useful and aesthetically coherent solutions. Experience spans <strong>PR in TV production</strong>, <strong>copywriting</strong>, and <strong>social media design</strong>, alongside ongoing work in web development.
             </p>
-            <p>
-              <a href="cv.pdf">Preuzmi CV (PDF)</a> ·
-              <a href="https://www.linkedin.com/in/tvoj-profil" rel="noopener" target="_blank">LinkedIn</a> ·
-              <a href="#kontakt">Kontakt e‑mail</a>
-            </p>
+            <div class="hero-links">
+              <a href="cv.pdf">Download CV (PDF)</a>
+              <a href="https://www.linkedin.com/in/selma-karacic1111" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="#contact">Email</a>
+            </div>
           </div>
           <figure class="hero-photo">
-            <!-- Zamijeni src svojom fotografijom (npr. images/ja.jpg) -->
-            <img src="images/placeholder-headshot.jpg" alt="Portret: Ime Prezime" width="320" height="320" />
-            <figcaption class="sr-only">Lični portret</figcaption>
+            <img src="https://via.placeholder.com/320" alt="Portrait: Selma Karačić" width="320" height="320">
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- O MENI: bez previše "ja", fokus na vrijednosti i pristupu -->
-    <section id="o-meni">
+    <section id="about">
       <div class="container">
-        <h2>O meni</h2>
+        <h2>About</h2>
         <p>
-          Entuzijastična za IT i interdisciplinarne projekte. Studij računarstva gradim uz minor iz elektrotehnike,
-          što mi daje dobru kombinaciju teorijske podloge i praktičnog inženjerskog načina razmišljanja.
+          Enthusiastic about IT and interdisciplinary projects. The CSIS major paired with an Electrical Engineering minor provides a solid technical base and an engineering problem-solving approach.
         </p>
         <p>
-          U radu preferiram jasan proces: razumjeti cilj, strukturirati zadatke, prototipirati rješenje i iterirati na osnovu povratnih informacija.
-          Volim dizajn i vizuelnu komunikaciju, što se vidi kroz nekoliko studentskih i freelance projekata.
+          Work process: define the goal → structure the tasks → prototype → iterate with feedback. Emphasis on simplicity, functionality and visual clarity.
         </p>
         <p>
-          Tečnost u više jezika omogućava precizno oblikovanje poruka i prilagodbu različitim publikama, bilo da je riječ o tehničkoj dokumentaciji,
-          PR saopštenju ili UI tekstu.
+          Multilingual communication (<strong>Bosnian, English, German</strong>) enables precise technical and marketing writing and effective collaboration with diverse teams and audiences.
         </p>
       </div>
     </section>
 
-    <!-- VJEŠTINE & JEZICI -->
-    <section id="vjestine">
+    <section id="skills">
       <div class="container">
-        <h2>Vještine & jezici</h2>
+        <h2>Skills & Languages</h2>
         <div class="skills">
           <div>
-            <h3>Tehničke vještine</h3>
+            <h3>Technical</h3>
             <ul>
-              <li>Osnove web razvoja (HTML, CSS, osnovni JS; PHP osnove)</li>
-              <li>Rad na sadržaju: planiranje, uređivanje, SEO osnove</li>
-              <li>Dizajn za društvene mreže (koncept, tipografija, layout)</li>
-              <li>Copywriting: sažeto i jasno pripovijedanje</li>
+              <li>Web basics (HTML, CSS, JS; PHP basics)</li>
+              <li>Content ops (planning, editing, SEO fundamentals)</li>
+              <li>Social media design (concept, typography, layout)</li>
+              <li>Copywriting</li>
+              <li>Git basics & team workflows</li>
             </ul>
           </div>
           <div>
-            <h3>Jezici</h3>
+            <h3>Languages</h3>
             <ul>
-              <li>Bosanski — maternji</li>
-              <li>Engleski — tečno</li>
-              <li>Njemački — tečno</li>
+              <li>Bosnian — native</li>
+              <li>English — fluent</li>
+              <li>German — fluent</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ISKUSTVO: kao CV timeline/lista -->
-    <section id="iskustvo">
+    <section id="experience">
       <div class="container">
-        <h2>Iskustvo</h2>
+        <h2>Experience</h2>
         <article class="posao">
           <header>
-            <h3>PR & Digital — TV produkcija</h3>
-            <p class="meta">Godina–Godina · Sarajevo (po potrebi prilagoditi)</p>
+            <h3>Web Content Writer — Hayat.ba</h3>
+            <p class="meta">May 2024 — December 2024 · Sarajevo</p>
           </header>
           <ul>
-            <li>Koordinacija PR aktivnosti i komunikacije sa medijima.</li>
-            <li>Priprema saopštenja, najava i sadržaja za digitalne kanale.</li>
-            <li>Saradnja sa produkcijskim timom na kampanjama i promocijama.</li>
+            <li>Planned and wrote web articles, headlines and descriptions.</li>
+            <li>Worked in CMS; applied basic SEO and content structure.</li>
           </ul>
         </article>
         <article class="posao">
           <header>
-            <h3>Copywriter / Content</h3>
-            <p class="meta">Freelance · Godina–Godina</p>
+            <h3>Public Relations Manager — Hayatproduction.ba</h3>
+            <p class="meta">May 2023 — September 2023 · Sarajevo</p>
           </header>
           <ul>
-            <li>Tekstovi za web, društvene mreže i promotivne materijale.</li>
-            <li>Usklađivanje tona i stila sa brendom i ciljnom publikom.</li>
+            <li>Prepared press releases and announcements; managed media relations.</li>
+            <li>Coordinated campaigns and digital content distribution.</li>
           </ul>
         </article>
         <article class="posao">
           <header>
-            <h3>Dizajn za društvene mreže</h3>
-            <p class="meta">Freelance · Godina–Godina</p>
+            <h3>Designer & Design Coordinator — MedReCon'25 (SSST)</h3>
+            <p class="meta">2025</p>
           </header>
           <ul>
-            <li>Vizuelni koncepti, izrada grafika i kratkih videa.</li>
-            <li>Saradnja sa timovima na kalendarima objava i A/B testiranju.</li>
+            <li>Developed the visual identity and conference graphics.</li>
+            <li>Coordinated design tasks and assets for social media.</li>
+            <li>IG: <a href="https://instagram.com/ssstmedrecon" target="_blank" rel="noopener">@ssstmedrecon</a> · Web: <a href="https://ssstmedrecon.com" target="_blank" rel="noopener">ssstmedrecon.com</a></li>
           </ul>
         </article>
       </div>
     </section>
 
-    <!-- PROJEKTI: 3–6 kratkih opisa -->
-    <section id="projekti">
+    <section id="projects">
       <div class="container">
-        <h2>Projekti</h2>
+        <h2>Projects</h2>
         <ul class="projekti-lista">
           <li>
-            <h3>Studentski web projekat</h3>
-            <p>Kratak opis cilja, tehnologija i uloge (npr. planiranje strukture, izrada osnovnih stranica, testiranje).</p>
-            <p><a href="#">Repo / demo</a></p>
+            <h3>NEZIRI HAUSWARTUNG — website</h3>
+            <p>Built and deployed a presentation website.</p>
+            <a href="https://neziri-hauswartung.ch" target="_blank" rel="noopener">neziri-hauswartung.ch</a>
           </li>
           <li>
-            <h3>Mini kampanja na društvenim mrežama</h3>
-            <p>Osmišljavanje koncepta, izrada vizuala i copyja; mjerni rezultati (npr. rast pregleda ili engagementa).</p>
-            <p><a href="#">Pregled</a></p>
+            <h3>MedReCon'25 — visual identity & social media</h3>
+            <p>Key visuals and coordination of posts.</p>
+            <a href="https://instagram.com/ssstmedrecon" target="_blank" rel="noopener">Instagram</a> ·
+            <a href="https://ssstmedrecon.com" target="_blank" rel="noopener">ssstmedrecon.com</a>
           </li>
           <li>
-            <h3>Umjetnički radovi (slikanje & crtanje)</h3>
-            <p>Uzorci radova; mogućnost narudžbi i prodaje (link ka galeriji ili kontakt formi).</p>
-            <p><a href="#">Galerija</a></p>
+            <h3>Artworks (painting & drawing)</h3>
+            <p>Selected works; available for inquiries and commissions.</p>
+            <a href="#contact">Contact section</a>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- OBRAZOVANJE -->
-    <section id="obrazovanje">
+    <section id="education">
       <div class="container">
-        <h2>Obrazovanje</h2>
-        <article>
-          <h3>BSc Computer Science — u toku</h3>
-          <p>Minor: Elektrotehnika · Univerzitet (upiši naziv) · Očekivana godina završetka: 20XX</p>
-          <p>Relevantni predmeti: programiranje, web tehnologije, baze podataka, osnove elektronike…</p>
+        <h2>Education</h2>
+        <article class="posao">
+          <h3>BSc Computer Science and Information Systems — in progress</h3>
+          <p class="meta">Minor: Electrical Engineering · Sarajevo School of Science and Technology (SSST)</p>
+          <p style="margin-top: 12px;">
+            SSST is partnered with the <strong>University of Buckingham</strong> (dual degree programme).
+          </p>
         </article>
       </div>
     </section>
 
-    <!-- KONTAKT -->
-    <section id="kontakt">
+    <section id="contact">
       <div class="container">
-        <h2>Kontakt</h2>
-        <p>Najbolje me je kontaktirati putem e‑maila ili LinkedIna.</p>
+        <h2>Contact</h2>
+        <p>Best way to reach me is via email or LinkedIn.</p>
         <ul>
-          <li>E‑mail: <a href="mailto:tvoje.ime@domena.com">tvoje.ime@domena.com</a></li>
-          <li>LinkedIn: <a href="https://www.linkedin.com/in/tvoj-profil" rel="noopener" target="_blank">linkedin.com/in/tvoj‑profil</a></li>
+          <li>Email: <a href="mailto:selma04k@gmail.com">selma04k@gmail.com</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/selma-karacic1111" target="_blank" rel="noopener">linkedin.com/in/selma-karacic1111</a></li>
         </ul>
       </div>
     </section>
@@ -197,26 +508,24 @@
 
   <footer>
     <div class="container">
-      <p><small>© <span id="year"></span> Ime Prezime</small></p>
+      <p><small>© <span id="year"></span> Selma Karačić</small></p>
     </div>
   </footer>
 
-  <!-- Minimalni JS samo za godinu u podnožju; CSS ćemo kasnije dodati -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
-  <!-- (Opcionalno) JSON‑LD za bolji prikaz u pretragama; prilagoditi podatke -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Ime Prezime",
-    "description": "Studentica Computer Science (minor Elektrotehnika); PR, copywriting i dizajn za društvene mreže.",
-    "email": "mailto:tvoje.ime@domena.com",
-    "url": "https://tvojeime.github.io/",
-    "sameAs": ["https://www.linkedin.com/in/tvoj-profil"],
-    "knowsAbout": ["web development","copywriting","PR","graphic design"],
+    "name": "Selma Karačić",
+    "description": "BSc candidate in Computer Science and Information Systems; PR, copywriting and social media design.",
+    "email": "mailto:selma04k@gmail.com",
+    "url": "https://selmakaracic.github.io/",
+    "sameAs": ["https://www.linkedin.com/in/selma-karacic1111"],
+    "knowsAbout": ["web development","copywriting","PR","graphic design","social media"],
     "worksFor": {"@type": "Organization","name": "Freelance"}
   }
   </script>
